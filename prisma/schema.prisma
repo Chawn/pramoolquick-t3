@@ -12,23 +12,23 @@ model assets {
   v                 Int       @map("__v")
   active            Boolean?
   amphur            String?
-  assetKey          String
+  assetKey          String?
   assetType         String?
   assetUrl          String?
   createdAt         DateTime  @db.Date
   deedNo            String?
   dept              String?
   email             String?
-  isFavorite        Boolean
+  isFavorite        Boolean?
   landTyle          String?
   lawId             String?
   lotNo             String?
-  mapImageSrc       String
+  mapImageSrc       String?
   nextRound         String?
   nextRoundDate     String?
   nextRoundRealDate DateTime? @db.Date
   note              String?
-  /// Multiple data types found: Float: 2.6%, Int: 97.4% out of 773 sampled entries
+  /// Multiple data types found: Float: 2.4%, Int: 97.6% out of 760 sampled entries
   price             Json?
   pricePerWa        Int?
   province          String?
@@ -37,7 +37,7 @@ model assets {
   sizeNgan          Int?
   sizeRai           Int?
   sizeWa            Int?
-  thumbSrc          String
+  thumbSrc          String?
   totalArea         Int?
   tumbon            String?
   updatedAt         DateTime  @db.Date

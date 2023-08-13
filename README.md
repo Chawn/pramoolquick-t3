@@ -74,4 +74,14 @@ open `http://localhost:5555`
 - ทำตาม Doc:  https://clerk.com/docs/nextjs/get-started-with-nextjs
   - Set Environment Keys (in .env and Vercel)
   - Create middleware.ts in src/
-  - 
+
+- edit index.tsx
+  - add clerk signin button
+- add clerk signout button
+
+# axiom
+
+#  วิธี Backup ข้อมูล ใช้โค้ดนี้ได้เลย รันใน Terminal นะ
+` mongodump --uri mongodb+srv://chawput:<PASSWORD>@cluster0.q0m6i.mongodb.net/pramoolquick2 `
+# วิธี Restore ข้อมูล dump/pramoolquick2 เข้า database pramoolquick-t3
+` mongorestore --uri="mongodb+srv://chawput:<PASSWORD>@cluster0.q0m6i.mongodb.net/pramoolquick-t3" --nsInclude=pramoolquick2 dump/pramoolquick2`
