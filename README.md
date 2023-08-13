@@ -28,9 +28,10 @@ You can check out the [create-t3-app GitHub repository](https://github.com/t3-os
 Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
 
 
-https://create.t3.gg/en/installation
+Tutorial: https://www.youtube.com/watch?v=YkOSUVzOAA4&ab_channel=Theo-t3%E2%80%A4gg
+Doc: https://create.t3.gg/en/installation
 
-1. Installation
+# Installation
 `npx create-t3-app@latest`
 - name: 'my-t3-app'
 - select `Typscript`
@@ -45,25 +46,32 @@ git branch -M main
 git push -u origin main
 ```
 
-2. Next steps:
-  cd my-t3-app -->
+## Next steps:
+  cd my-t3-app
   npm run dev
-  <!-- npx prisma db push -->
-  <!-- git commit -m "initial commit"
-
-vercel
+  
+# vercel
 - create project
 - deploy error
 
+# planetscale
 https://planetscale.com/
 - create database
 - click connect
 - choose prisma
 - copy connection string to .env
   
-setup prisma DB at `./prisma/schema.prisma`
-
+# prisma
+setup prisma DB at `./prisma/schema.prisma` (from old mongodb schema)
 open prisma studio
 `npx prisma studio`
 open `http://localhost:5555`
 `npx prisma db push`
+
+# clerk 
+- goto: clerk.com
+- create app
+- ทำตาม Doc:  https://clerk.com/docs/nextjs/get-started-with-nextjs
+  - Set Environment Keys (in .env and Vercel)
+  - Create middleware.ts in src/
+  - 
