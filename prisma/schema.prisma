@@ -1,17 +1,157 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
-    provider = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
-    provider = "sqlite"
-    url      = env("DATABASE_URL")
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
 }
 
-model Example {
-    id        String   @id @default(cuid())
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+model assets {
+  id                String    @id @default(auto()) @map("_id") @db.ObjectId
+  v                 Int       @map("__v")
+  active            Boolean?
+  amphur            String?
+  assetKey          String
+  assetType         String?
+  assetUrl          String?
+  createdAt         DateTime  @db.Date
+  deedNo            String?
+  dept              String?
+  email             String?
+  isFavorite        Boolean
+  landTyle          String?
+  lawId             String?
+  lotNo             String?
+  mapImageSrc       String
+  nextRound         String?
+  nextRoundDate     String?
+  nextRoundRealDate DateTime? @db.Date
+  note              String?
+  /// Multiple data types found: Float: 2.6%, Int: 97.4% out of 773 sampled entries
+  price             Json?
+  pricePerWa        Int?
+  province          String?
+  saleNo            String?
+  saleStatus        String?
+  sizeNgan          Int?
+  sizeRai           Int?
+  sizeWa            Int?
+  thumbSrc          String
+  totalArea         Int?
+  tumbon            String?
+  updatedAt         DateTime  @db.Date
+  user              String?
+}
+
+model assettags {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+}
+
+model banktransfers {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  v               Int      @map("__v")
+  amount          Int
+  createdAt       DateTime @db.Date
+  phone           String
+  status          String
+  transferDate    DateTime @db.Date
+  transferTimeHH  Int
+  transferTimeMM  Int
+  updatedAt       DateTime @db.Date
+  userAccountName String
+}
+
+model banneds {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  v         Int      @map("__v")
+  assetKey  String
+  createdAt DateTime @db.Date
+  updatedAt DateTime @db.Date
+  user      String?  @db.ObjectId
+}
+
+model bills {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  v             Int      @map("__v")
+  active        Boolean
+  bankTransfer  String   @db.ObjectId
+  card          String
+  createdAt     DateTime @db.Date
+  discount      Int?
+  discountCode  String
+  endOn         DateTime @db.Date
+  paymentMethod String
+  paymentStatus String
+  plan          String   @db.ObjectId
+  planName      String?
+  startOn       DateTime @db.Date
+  subTotal      Int
+  tax           Int
+  total         Int
+  updatedAt     DateTime @db.Date
+  user          String   @db.ObjectId
+  voucher       String?  @db.ObjectId
+}
+
+model hiddens {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+}
+
+model notifies {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+}
+
+model plans {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  v           Int      @map("__v")
+  createdAt   DateTime @db.Date
+  description String
+  every       Int
+  period      String
+  price       Int
+  role        String
+  title       String
+  updatedAt   DateTime @db.Date
+}
+
+model searches {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  v          Int      @map("__v")
+  createdAt  DateTime @db.Date
+  isFavorite Boolean
+  name       String
+  updatedAt  DateTime @db.Date
+  url        String
+  user       String?  @db.ObjectId
+}
+
+model tags {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+}
+
+model users {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  v           Int       @map("__v")
+  createdAt   DateTime  @db.Date
+  email       String    @unique(map: "email_1")
+  licensekey  String?
+  nextPayDate DateTime? @db.Date
+  password    String
+  plan        String?   @db.ObjectId
+  role        String?
+  updatedAt   DateTime  @db.Date
+}
+
+model vouchers {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  v           Int      @map("__v")
+  active      Boolean
+  code        String   @unique(map: "code_1")
+  createdAt   DateTime @db.Date
+  discount    Int
+  expiredDate DateTime @db.Date
+  max         Int
+  updatedAt   DateTime @db.Date
+  used        Int?
 }

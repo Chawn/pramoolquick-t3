@@ -26,3 +26,44 @@ You can check out the [create-t3-app GitHub repository](https://github.com/t3-os
 ## How do I deploy this?
 
 Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+
+
+https://create.t3.gg/en/installation
+
+1. Installation
+`npx create-t3-app@latest`
+- name: 'my-t3-app'
+- select `Typscript`
+- select all except `NextAuth`
+- Y, Y, Y
+
+cd my-t3-app
+code . 
+```
+git remote add origin git@github.com:Chawn/my-t3-app.git      
+git branch -M main
+git push -u origin main
+```
+
+2. Next steps:
+  cd my-t3-app -->
+  npm run dev
+  <!-- npx prisma db push -->
+  <!-- git commit -m "initial commit"
+
+vercel
+- create project
+- deploy error
+
+https://planetscale.com/
+- create database
+- click connect
+- choose prisma
+- copy connection string to .env
+  
+setup prisma DB at `./prisma/schema.prisma`
+
+open prisma studio
+`npx prisma studio`
+open `http://localhost:5555`
+`npx prisma db push`
